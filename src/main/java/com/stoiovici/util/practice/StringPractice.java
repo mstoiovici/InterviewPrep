@@ -16,7 +16,7 @@ public class StringPractice {
     } else {
       System.out.println("they are not equals ");
     }
-    if (a == b.substring(0, b.length() +1 )){
+    if (a == b.substring(0, b.length()  )){
       System.out.println("they are ==");
     } else {
       System.out.println("they are not ==");
@@ -27,6 +27,12 @@ public class StringPractice {
     } else {
       System.out.println("they are not equals ");
     }
+
+
+    String word = "Mariana";
+    int characterValue = word.charAt(0);
+    Character character = word.charAt(0);
+    System.out.println("First character in word is: " + character + " and its value is: " + characterValue);
   }
 
 }
