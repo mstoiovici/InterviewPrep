@@ -1,31 +1,49 @@
 package main.java.com.stoiovici.leetcode.strings;
 
 public class SplitStringInBalancedStrings {
-  public static int getNumberOfbalancedStrings(String s){
+  public static int getNumberOfBalancedStrings(String s){
     int result =0;
-    int counter = 1;
-    int currentIndex = 0;
+    int counter = 0;
+
     for (int i=0; i<s.length(); i++) {
-      if ((i <s.length() -1) && (s.charAt(i + 1) == s.charAt(i))) {
 
-        counter ++;
-
+      if (s.charAt(i) == 'R') {
+        counter++;
       } else {
-        int temp = counter;
-        counter --;
-        if(temp-1 == 0) {
-          result++;
-          int length = s.length();
-          s=s.substring(i+2, length);
+        counter--;
+
       }
+      if(counter == 0){
+        result++;
       }
     }
     return result;
   }
 
+  public static int getNumberOfBalancedStrings1(String s){
+    int result =0;
+    int leftCounter = 0;
+    int rightCounter = 0;
+    for (int i=0; i<s.length(); i++) {
+
+      if (s.charAt(i) == 'R') {
+        rightCounter++;
+      } else {
+        leftCounter++;
+
+      }
+      if(rightCounter == leftCounter){
+        result++;
+      }
+    }
+
+
+    return result;
+  }
+
   public static void main(String[] args) {
-    String s = "rlrrllrlrl";
-    int result = getNumberOfbalancedStrings(s);
+    String s = "RLRRLLRLRL";
+    int result = getNumberOfBalancedStrings1(s);
     System.out.println(result);
   }
 }
