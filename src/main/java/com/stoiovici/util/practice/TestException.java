@@ -2,7 +2,7 @@ package main.java.com.stoiovici.util.practice;
 
 public class TestException {
 
-  public static boolean testException() {
+  public static boolean throwException() {
     try {
       throw new Exception("eroare");
     } catch (Exception e) {
@@ -15,7 +15,7 @@ public class TestException {
   }
 
   public static void main(String[] args) {
-    boolean value = testException();
+    boolean value = throwException();
     if (value) {
       System.out.println("true");
     } else {
