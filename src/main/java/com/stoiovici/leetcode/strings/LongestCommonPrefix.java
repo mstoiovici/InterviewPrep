@@ -10,10 +10,13 @@ public class LongestCommonPrefix {
       prefix = strs[0].substring(0, i+1);
       for (int j=1; j< strs.length; j++ ) {
         if(!((strs[j].substring(0, i+1).equals(prefix)) && (prefix.length() <= strs[j].length()))) {
-          return prefix.substring(0, i);
+          prefix = "";
+          return "There is none";
         }
       }
     }
+
+
     return prefix;
   }
 
@@ -30,7 +33,7 @@ public class LongestCommonPrefix {
     strs2[1] = "racecar";
     strs2[2] = "car";
     String[] strs3 = {"dog","racecar","car"};
-    System.out.println(longestCommonPrefix(strs));
-    System.out.println(longestCommonPrefix(strs3));
+    // System.out.println(longestCommonPrefix(strs));
+    System.out.println(longestCommonPrefix(strs2));
   }
 }

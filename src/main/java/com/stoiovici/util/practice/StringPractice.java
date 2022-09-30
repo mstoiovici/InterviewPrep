@@ -51,6 +51,11 @@ public class StringPractice {
     }
     System.out.println(d.substring(0,d.length()));
 
+    System.out.println("Starting from here");
+    String testing = "testing";
+    System.out.println(testing.charAt(0));
+    System.out.println(testing.charAt(0) - 'a');
+
   }
 
 }
