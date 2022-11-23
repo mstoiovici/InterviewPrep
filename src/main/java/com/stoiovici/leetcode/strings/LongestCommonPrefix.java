@@ -1,7 +1,7 @@
 package main.java.com.stoiovici.leetcode.strings;
 
 import java.util.ArrayList;
-import org.junit.jupiter.api.Test;
+
 
 public class LongestCommonPrefix {
   public static String longestCommonPrefix(String[] strs) {
