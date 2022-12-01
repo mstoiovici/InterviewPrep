@@ -39,7 +39,32 @@ public class TournamentWinnerSolution {
     return thisIt;
   }
 
-  public String tournamentWinner1(
+  public static String getTournamentWinner2(ArrayList<ArrayList<String>> competitions, ArrayList<Integer> results){
+    HashMap<String, Integer> map = new HashMap<>();
+    for (int i=0; i<competitions.size(); i++){
+      if(results.get(i) ==0){
+//        int temp = map.get(competitions.get(i).get(1));
+        map.put(competitions.get(i).get(1), map.getOrDefault(competitions.get(i).get(1), 0) + 3);
+      }
+      else{
+//        int temp = map.get(competitions.get(i).get(0));
+        map.put(competitions.get(i).get(0),  map.getOrDefault(competitions.get(i).get(0), 0)+3);
+      }
+    }
+
+    Integer mostPoints = 0;
+    String thisIt = "";
+    for (Map.Entry<String,Integer> entry : map.entrySet()) {
+      if(entry.getValue() > mostPoints){
+        mostPoints = entry.getValue();
+        thisIt = entry.getKey();
+      }
+    }
+    return thisIt;
+  }
+
+
+  public static String tournamentWinner1(
       ArrayList<ArrayList<String>> competitions, ArrayList<Integer> results) {
 
     HashMap<String, Integer> scores = new HashMap<>();
@@ -60,6 +85,8 @@ public class TournamentWinnerSolution {
         scores.put(winner, 0);
       }
       scores.put(winner, scores.get(winner) + 3);
+
+
 //check if the winner you've updated has more points than the bestTeam
       //and update bestTeam
       if(scores.get(winner) > scores.get(bestTeam)){
@@ -72,51 +99,51 @@ public class TournamentWinnerSolution {
   }
 
   public static void main(String[] args){
-    // ArrayList<ArrayList<String>> competitions = new ArrayList<>();;
-    // ArrayList<String> comp1= new ArrayList<>();
-    // comp1.add("HTML");
-    // comp1.add("C++");
-    // ArrayList<String> comp2= new ArrayList<>();
-    // comp2.add("C++");
-    // comp2.add("Python");
-    // ArrayList<String> comp3= new ArrayList<>();
-    // comp3.add("Python");
-    // comp3.add("HTML");
-    // competitions.add(comp1);
-    // competitions.add(comp2);
-    // competitions.add(comp3);
-    // System.out.println(competitions.size());
-    // for(ArrayList<String> competition : competitions){
-    //   System.out.println();
-    //   System.out.print(competition.get(0));
-    //   System.out.print(",");
-    //   System.out.print(competition.get(1));
-    // }
-    // ArrayList<Integer> results = new ArrayList<>();
-    // results.add(0);
-    // results.add(0);
-    // results.add(1);
-    //
-    //
-    //
-    // String winner = getTournamentWinner(competitions, results);
-    // System.out.println(winner);
+     ArrayList<ArrayList<String>> competitions = new ArrayList<>();;
+     ArrayList<String> comp1= new ArrayList<>();
+     comp1.add("HTML");
+     comp1.add("C++");
+     ArrayList<String> comp2= new ArrayList<>();
+     comp2.add("C++");
+     comp2.add("Python");
+     ArrayList<String> comp3= new ArrayList<>();
+     comp3.add("Python");
+     comp3.add("HTML");
+     competitions.add(comp1);
+     competitions.add(comp2);
+     competitions.add(comp3);
+     System.out.println(competitions.size());
+     for(ArrayList<String> competition : competitions){
+       System.out.println();
+       System.out.print(competition.get(0));
+       System.out.print(",");
+       System.out.print(competition.get(1));
+     }
+     ArrayList<Integer> results = new ArrayList<>();
+     results.add(0);
+     results.add(0);
+     results.add(1);
 
-    ArrayList<ArrayList<String>> competitions1 = new ArrayList<>();;
-    ArrayList<String> comp11= new ArrayList<>();
-    comp11.add("HTML");
-    comp11.add("C++");
-    competitions1.add(comp11);
-    for(ArrayList<String> competition : competitions1){
-        System.out.println();
-        System.out.print(competition.get(0));
-        System.out.print(",");
-        System.out.print(competition.get(1));
-      }
-    ArrayList<Integer> results1 = new ArrayList<>();
-    results1.add(0);
-    String winner1 = getTournamentWinner(competitions1, results1);
-    System.out.println(winner1);
+
+
+     String winner = getTournamentWinner2(competitions, results);
+     System.out.println(winner);
+
+//    ArrayList<ArrayList<String>> competitions1 = new ArrayList<>();;
+//    ArrayList<String> comp11= new ArrayList<>();
+//    comp11.add("HTML");
+//    comp11.add("C++");
+//    competitions1.add(comp11);
+//    for(ArrayList<String> competition : competitions1){
+//        System.out.println();
+//        System.out.print(competition.get(0));
+//        System.out.print(",");
+//        System.out.print(competition.get(1));
+//      }
+//    ArrayList<Integer> results1 = new ArrayList<>();
+//    results1.add(0);
+//    String winner1 = tournamentWinner1(competitions1, results1);
+//    System.out.println(winner1);
 
   }
 }

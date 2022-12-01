@@ -1,6 +1,8 @@
-package main.java.com.stoiovici.algoexpert;
+package main.java.com.stoiovici.algoexpert.arrays;
 
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Hashtable;
 
 public class TwoNumberSum {
@@ -16,6 +18,23 @@ public class TwoNumberSum {
         }
 
     }
+    return solution;
+  }
+
+  public static int[] getTwoNumbersThatSumToValue(int [] numbers, int sumValue){
+    int[] solution = new int[2];
+    HashSet<Integer> set = new HashSet<>();
+    for (int number : numbers){
+      int difference = sumValue - number;
+      if(set.contains(difference)){
+        solution[0] = difference;
+        solution[1] = number;
+        return solution;
+      } else {
+        set.add(number);
+      }
+    }
+
     return solution;
   }
 
@@ -59,13 +78,18 @@ public class TwoNumberSum {
 
     // I don't think I need to check this as the problem will definitely have a solution, so
     // the solution array will never be empty
-    if (twoNumberSum2(myArray, 10).length != 0) {
-      int [] solution = twoNumberSum1(myArray, 10);
+//    if (twoNumberSum2(myArray, 10).length != 0) {
+//      int [] solution = twoNumberSum2(myArray, 10);
+//      System.out.println("Solution is: [" + solution[0] + ", " + solution[1] + "]");
+//    } else {
+//      System.out.println("There are no 2 integers to sum up to the target.");
+//    }
+    if (getTwoNumbersThatSumToValue(myArray, 10).length != 0) {
+      int [] solution = getTwoNumbersThatSumToValue(myArray, 10);
       System.out.println("Solution is: [" + solution[0] + ", " + solution[1] + "]");
     } else {
       System.out.println("There are no 2 integers to sum up to the target.");
     }
-
 
   }
 }
